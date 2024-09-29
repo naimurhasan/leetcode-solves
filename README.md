@@ -25,6 +25,51 @@ class Solution {
 }
 ```
 
+**A little boost with adding hashmap trial before the bruetforce takes place**:
+
+```
+/**
+ * You can edit, run, and share this code.
+ * play.kotlinlang.org
+ */
+
+class Solution {
+    fun twoSum(nums: IntArray, target: Int): IntArray {
+        val m = mutableMapOf<Int, Int>()
+        var index = 0
+
+        // search through hashmap
+        for(i in nums){
+            m[i] = index
+            index++
+        }
+        index = 0
+        for(i in nums){
+            val diff = target - i
+            if(diff!=i && m[diff]!=null){
+                return intArrayOf(index, m[diff]!!)
+            }
+            index++
+        }
+
+        // old ususal solution
+        for(i in 0 until nums.size-1){
+            for(j in i+1 until nums.size){
+                if(nums[i]+nums[j]==target){
+                    return intArrayOf(i, j)
+                }
+            }
+        }
+        
+        return intArrayOf(-1, -1)
+    }
+}
+
+fun main() {
+    println(Solution().twoSum(intArrayOf(2,7,11,15), 9).contentToString())
+}
+```
+
 **Approach**:  
 The solution iterates over all pairs of elements in the array using a nested loop to find the pair that adds up to the target value. If such a pair is found, it returns their indices.
 
