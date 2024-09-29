@@ -69,6 +69,47 @@ fun main() {
     println(Solution().twoSum(intArrayOf(2,7,11,15), 9).contentToString())
 }
 ```
+**further optimization:**
+```kt
+fun twoSum(nums: IntArray, target: Int): IntArray {
+        val m = mutableMapOf<Int, Int>()
+        for((i, v) in nums.withIndex()){
+            val diff = target - v
+            if(m[diff]!=null){
+                return intArrayOf(i, m[diff]!!)
+            }else{
+                m[v] = i
+            }
+        }        
+        return intArrayOf(-1, -1)
+    }
+```
+
+***without map:**
+```
+fun twoSum(nums: IntArray, target: Int): IntArray {
+        val indexedNums = nums.withIndex().toList()
+    
+        val sortedNums = indexedNums.sortedBy { it.value }
+
+        var left = 0
+        var right = sortedNums.size - 1
+
+        while (left < right) {
+            val sum = sortedNums[left].value + sortedNums[right].value
+
+            if (sum == target) {
+                return intArrayOf(sortedNums[left].index, sortedNums[right].index)
+            } else if (sum < target) {
+                left++
+            } else {
+                right--
+            }
+        }
+
+        return intArrayOf(-1, -1)
+    }
+```
 
 **Approach**:  
 The solution iterates over all pairs of elements in the array using a nested loop to find the pair that adds up to the target value. If such a pair is found, it returns their indices.
