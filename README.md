@@ -4,6 +4,9 @@ This repository contains solutions to various coding problems I have solved. Eac
 
 ## Problem List
 
+* [Two Sum](#1-two-sum)
+* [Contains Duplicate](#2-contains-duplicate)
+
 ### 1. Two Sum
 
 **Problem**:  
