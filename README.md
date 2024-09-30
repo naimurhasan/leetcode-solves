@@ -116,17 +116,38 @@ The solution iterates over all pairs of elements in the array using a nested loo
 
 ---
 
-### 2. [Problem Title]  
-(Add future problems as you solve them here)
+### 2. Contains Duplicate
+Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
 
 **Problem**:  
-(Describe the problem here)
+Example 1:
+
+Input: nums = [1,2,3,1]
+
+Output: true
+
+Explanation:
+
+The element 1 occurs at the indices 0 and 3.
 
 **Solution**:  
-(Add the solution here)
+```
+class Solution {
+    fun containsDuplicate(nums: IntArray): Boolean {
+        val m = mutableMapOf<Int, Boolean>()
+        for(v in nums){
+            if(m[v]==null)
+            	m[v]=true
+            else
+            	return true
+        }
+        return false
+    }
+}
+```
 
 **Approach**:  
-(Explain the approach here)
+The approach uses a hashmap to track elements while iterating through the array, returning true if a duplicate is found, otherwise adding new elements to the map.
 
 ---
 
