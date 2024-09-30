@@ -6,6 +6,7 @@ This repository contains solutions to various coding problems I have solved. Eac
 
 * [Two Sum](#1-two-sum)
 * [Contains Duplicate](#2-contains-duplicate)
+* [Best Time to Buy and sell stock](#3-best-time-to-buy-and-sell-stock)
 
 ### 1. Two Sum
 
@@ -149,8 +150,63 @@ class Solution {
 }
 ```
 
-**Approach**:  
+**Approach**: 
+
 The approach uses a hashmap to track elements while iterating through the array, returning true if a duplicate is found, otherwise adding new elements to the map.
+
+---
+
+Here's how you can write the note in the required format:
+
+---
+
+### 3. Best Time to Buy and Sell Stock
+**Problem**:  
+You are given an array `prices` where `prices[i]` is the price of a given stock on the ith day. You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock. Return the maximum profit you can achieve from this transaction. If no profit can be achieved, return 0.
+
+**Solution**:
+```kotlin
+class Solution {
+    fun maxProfit(prices: IntArray): Int {
+        var leastSoFar = Int.MAX_VALUE
+        var maxProfit = 0
+        
+        for (price in prices) {
+            if (price < leastSoFar) {
+                leastSoFar = price
+            }
+            
+            val profitIfSoldToday = price - leastSoFar
+            
+            if (profitIfSoldToday > maxProfit) {
+                maxProfit = profitIfSoldToday
+            }
+        }
+        
+        return maxProfit
+    }
+}
+```
+
+**Approach**:  
+The approach uses a greedy strategy to track the minimum price encountered so far (`leastSoFar`) and calculates the profit if the stock is sold on the current day (`price - leastSoFar`). It then keeps updating the maximum profit found during the iteration. This ensures we find the best day to sell after buying on the cheapest day.
+
+--- 
+
+This format will help in organizing and documenting your solution for future reference!
+
+### 0. [Problem Title]  
+(Add future problems as you solve them here)
+
+**Problem**:  
+
+
+**Solution**:  
+
+
+**Approach**:  
+
+(Describe the problem here)
 
 ---
 
