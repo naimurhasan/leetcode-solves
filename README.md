@@ -234,6 +234,35 @@ class Solution {
 }
 ```
 
+**Optimize from n^2 to n:**
+```kt
+fun isAnagram(s: String, t: String): Boolean {
+        if(s.length != t.length)
+            return false
+        
+        val sM = mutableMapOf<Char, Int>() // s Map
+
+        for(c in s){
+            if(sM[c] != null){
+                sM[c] = sM[c]!!+1
+            }else{
+                sM[c] = 1
+            }
+        }
+        
+        for(c in t){
+            if(sM[c] == null)
+            	return false
+            else if(sM[c]==0)
+            	return false
+           	else
+            	sM[c] = sM[c]!!-1
+        }
+        
+        return true
+    }
+```
+
 **Approach**:  
 
 The approach counts the frequency of characters in string s using a map, then compares these counts with the characters in string t to check if they match.
