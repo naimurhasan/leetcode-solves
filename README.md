@@ -7,7 +7,7 @@ This repository contains solutions to various coding problems I have solved. Eac
 * [Two Sum](#1-two-sum)
 * [Contains Duplicate](#2-contains-duplicate)
 * [Best Time to Buy and sell stock](#3-best-time-to-buy-and-sell-stock)
-* [Valid Anagram]([#4-valid-anagram)
+* [Valid Anagram](#4-valid-anagram)
 
 ### 1. Two Sum
 
