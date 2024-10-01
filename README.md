@@ -193,6 +193,53 @@ The approach uses a greedy strategy to track the minimum price encountered so fa
 
 --- 
 
+### 4. Valid Anagram
+
+**Problem**:  
+Given two strings s and t, return true if t is an 
+anagram
+ of s, and false otherwise.
+
+**Solution**:  
+```
+class Solution {
+    fun isAnagram(s: String, t: String): Boolean {
+        if(s.length != t.length)
+            return false
+        
+        val sM = mutableMapOf<Char, Int>()
+
+        for(c in s){
+            if(sM[c] != null){
+                sM[c] = sM[c]!!+1
+            }else{
+                sM[c] = 1
+            }
+        }
+        
+        for((k, v) in sM){
+            var count = 0;
+            for(c in t){
+                if(c==k){
+                    count++
+                }
+            }
+            if(count!=v){
+                return false
+            }
+        }
+        
+        return true
+    }
+}
+```
+
+**Approach**:  
+
+The approach counts the frequency of characters in string s using a map, then compares these counts with the characters in string t to check if they match.
+
+--- 
+
 This format will help in organizing and documenting your solution for future reference!
 
 ### 0. [Problem Title]  
