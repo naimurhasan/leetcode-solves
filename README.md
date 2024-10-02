@@ -8,6 +8,7 @@ This repository contains solutions to various coding problems I have solved. Eac
 * [Contains Duplicate](#2-contains-duplicate)
 * [Best Time to Buy and sell stock](#3-best-time-to-buy-and-sell-stock)
 * [Valid Anagram](#4-valid-anagram)
+* [Max Subarray](#5-maximum-subarray)
 
 ### 1. Two Sum
 
@@ -267,6 +268,46 @@ fun isAnagram(s: String, t: String): Boolean {
 **Approach**:  
 
 The approach counts the frequency of characters in string s using a map, then compares these counts with the characters in string t to check if they match.
+
+--- 
+
+### 5. Maximum Subarray
+Given an integer array nums, find the 
+subarray
+ with the largest sum, and return its sum.
+
+**Problem**:  
+```
+Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+Output: 6
+Explanation: The subarray [4,-1,2,1] has the largest sum 6.
+```
+
+**Solution**:  
+
+#### works but gets TLE
+```
+fun maxSubArray(nums: IntArray): Int {
+        var maxSum = Int.MIN_VALUE
+        
+        if(nums.size==1) return nums[0]
+        
+        for(i in 0 until nums.size){
+            var sum = 0;
+            for(j in i until nums.size){
+         	 	sum += nums[j]
+                if(sum >= maxSum){
+                    maxSum = sum
+                }
+            }
+        }
+        return maxSum
+    }
+```
+
+**Approach**:  
+
+Loop through sub array update maxSum if new max found.
 
 --- 
 
