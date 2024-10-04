@@ -305,6 +305,29 @@ fun maxSubArray(nums: IntArray): Int {
     }
 ```
 
+**accepted:**
+```
+class Solution {
+    fun maxSubArray(nums: IntArray): Int {
+        var maxSum = Int.MIN_VALUE
+        var sum = 0
+        for(v in nums){
+        	sum += v
+            
+            if(sum>maxSum){
+                maxSum = sum
+            }
+            
+            if(sum<0){
+                sum = 0
+            }
+            
+        }        
+        return maxSum
+    }
+}
+```
+
 **Approach**:  
 
 Loop through sub array update maxSum if new max found.
