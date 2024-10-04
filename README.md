@@ -8,7 +8,7 @@ This repository contains solutions to various coding problems I have solved. Eac
 * [Contains Duplicate](#2-contains-duplicate)
 * [Best Time to Buy and sell stock](#3-best-time-to-buy-and-sell-stock)
 * [Valid Anagram](#4-valid-anagram)
-* [Max Subarray](#5-maximum-subarray)
+* [Product of Array Except Self](#5-Product-of-Array-Except-Self)
 
 ### 1. Two Sum
 
@@ -271,38 +271,37 @@ The approach counts the frequency of characters in string s using a map, then co
 
 --- 
 
-### 5. Maximum Subarray
-Given an integer array nums, find the 
-subarray
- with the largest sum, and return its sum.
+### 5. Product of Array Except Self
 
 **Problem**:  
+Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
+
+The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
+
+You must write an algorithm that runs in O(n) time and without using the division operation.
 ```
-Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
-Output: 6
-Explanation: The subarray [4,-1,2,1] has the largest sum 6.
+Example 1:
+
+Input: nums = [1,2,3,4]
+Output: [24,12,8,6]
+Example 2:
+
+Input: nums = [-1,1,0,-3,3]
+Output: [0,0,9,0,0]
 ```
 
 **Solution**:  
 
 #### works but gets TLE
 ```
-fun maxSubArray(nums: IntArray): Int {
-        var maxSum = Int.MIN_VALUE
-        
-        if(nums.size==1) return nums[0]
-        
-        for(i in 0 until nums.size){
-            var sum = 0;
-            for(j in i until nums.size){
-         	 	sum += nums[j]
-                if(sum >= maxSum){
-                    maxSum = sum
-                }
-            }
-        }
-        return maxSum
-    }
+Example 1:
+
+Input: nums = [1,2,3,4]
+Output: [24,12,8,6]
+Example 2:
+
+Input: nums = [-1,1,0,-3,3]
+Output: [0,0,9,0,0]
 ```
 
 **accepted:**
@@ -330,7 +329,7 @@ class Solution {
 
 **Approach**:  
 
-Loop through sub array update maxSum if new max found.
+Loop through array but skip index.
 
 --- 
 
