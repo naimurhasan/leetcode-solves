@@ -292,39 +292,23 @@ Output: [0,0,9,0,0]
 
 **Solution**:  
 
-#### works but gets TLE
 ```
-Example 1:
-
-Input: nums = [1,2,3,4]
-Output: [24,12,8,6]
-Example 2:
-
-Input: nums = [-1,1,0,-3,3]
-Output: [0,0,9,0,0]
-```
-
-**accepted:**
-```
-class Solution {
-    fun maxSubArray(nums: IntArray): Int {
-        var maxSum = Int.MIN_VALUE
-        var sum = 0
-        for(v in nums){
-        	sum += v
-            
-            if(sum>maxSum){
-                maxSum = sum
-            }
-            
-            if(sum<0){
-                sum = 0
-            }
-            
-        }        
-        return maxSum
+fun productExceptSelf(nums: IntArray): IntArray {
+        val n = nums.size
+        val ans = MutableList(n) { 1 }
+        var curr = 1
+        for(i in 0..(n-1)){
+            ans[i] = curr*ans[i]
+            curr = nums[i] * curr
+        }
+        
+        curr = 1
+        for(i in (n-1) downTo 0){
+            ans[i] = curr*ans[i]
+            curr = nums[i] * curr
+        }
+        return ans.toIntArray()
     }
-}
 ```
 
 **Approach**:  
